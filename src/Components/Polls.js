@@ -1,25 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import PollData from "../PollData";
 import PollList from "./PollList";
 import PollDetail from "./PollDetail";
 
 const Polls = () => {
-  const [pollsArray, setPollsArray] = useState(PollData);
-  const [selectedPoll, setSelectedPoll] = useState(null);
+  const pollsArray = PollData;
+  let selectedPoll = 1;
 
   return (
     <div className="Main-Layout">
-      <PollList
-        pollsArray={pollsArray}
-        setSelectedPoll={setSelectedPoll}
-        setPollsArray={setPollsArray}
-      />
-      <PollDetail
-        selectedPoll={selectedPoll}
-        setSelectedPoll={setSelectedPoll}
-        setPollsArray={setPollsArray}
-        pollsArray={pollsArray}
-      />
+      <PollList pollsArray={pollsArray} selectedPoll={selectedPoll} />
+      <PollDetail selectedPoll={selectedPoll} pollsArray={pollsArray} />
     </div>
   );
 };
