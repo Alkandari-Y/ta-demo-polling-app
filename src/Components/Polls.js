@@ -5,15 +5,20 @@ import PollDetail from "./PollDetail";
 
 const Polls = () => {
   const [pollsArray, setPollsArray] = useState(PollData);
-  const [query, setQuery] = useState("");
   const [selectedPoll, setSelectedPoll] = useState(null);
 
   return (
     <div className="Main-Layout">
-      <PollList pollsArray={pollsArray} setSelectedPoll={setSelectedPoll} />
+      <PollList
+        pollsArray={pollsArray}
+        setSelectedPoll={setSelectedPoll}
+        setPollsArray={setPollsArray}
+      />
       <PollDetail
         selectedPoll={selectedPoll}
         setSelectedPoll={setSelectedPoll}
+        setPollsArray={setPollsArray}
+        pollsArray={pollsArray}
       />
     </div>
   );

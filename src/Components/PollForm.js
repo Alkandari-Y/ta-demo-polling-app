@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const PollForm = ({ onOpenForm }) => {
-  let title = "";
-  let question = "";
+const PollForm = ({ onOpenForm, addToPOllArray }) => {
+  const [title, setTitle] = useState("");
+  const [question, setQuestion] = useState("");
 
   const handleSubmit = (e) => {
-    console.log("submitted");
+    e.preventDefault();
+    const randomId = Date.now();
+    console.log(randomId);
+    addToPOllArray({
+      title,
+      question,
+      id: randomId,
+      noVotes: 0,
+      yesVotes: 0,
+    });
+    onOpenForm();
   };
 
   return (
@@ -24,9 +34,9 @@ const PollForm = ({ onOpenForm }) => {
             name="title"
             type="text"
             placeholder="Enter Title"
+            value={title}
             onChange={(e) => {
-              title = e.target.value;
-              console.log(title);
+              setTitle(e.target.value);
             }}
           />
           <label>Question</label>
@@ -35,9 +45,9 @@ const PollForm = ({ onOpenForm }) => {
             name="question"
             type="text"
             placeholder="Enter Question"
+            value={question}
             onChange={(e) => {
-              title = e.target.value;
-              console.log(title);
+              setQuestion(e.target.value);
             }}
           />
         </div>

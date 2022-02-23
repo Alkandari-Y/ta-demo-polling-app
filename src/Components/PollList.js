@@ -3,16 +3,23 @@ import PollItem from "./PollItem";
 import Search from "./Search";
 import PollForm from "./PollForm";
 
-const PollList = ({ pollsArray, setSelectedPoll }) => {
+const PollList = ({ pollsArray, setSelectedPoll, setPollsArray }) => {
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
 
-  const pollList = pollsArray.map((poll) => (
-    <PollItem poll={poll} setSelectedPoll={setSelectedPoll} key={poll.id} />
-  ));
+  const pollList = pollsArray
+    .filter((poll) => poll.title.toLowerCase().includes(query.toLowerCase()))
+    .map((poll) => (
+      <PollItem poll={poll} setSelectedPoll={setSelectedPoll} key={poll.id} />
+    ));
 
   const onOpenForm = () => {
     setOpen(!open);
     console.log(open);
+  };
+
+  const addToPOllArray = (newPoll) => {
+    setPollsArray((prev) => [newPoll, ...prev]);
   };
 
   return (
@@ -25,11 +32,11 @@ const PollList = ({ pollsArray, setSelectedPoll }) => {
               +
             </h3>
           </div>
-          <Search />
+          <Search query={query} setQuery={setQuery} />
           <div className="PollList-Side-Bar">{pollList}</div>
         </>
       ) : (
-        <PollForm />
+        <PollForm onOpenForm={onOpenForm} addToPOllArray={addToPOllArray} />
       )}
     </div>
   );

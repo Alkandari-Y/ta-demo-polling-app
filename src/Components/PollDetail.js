@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-const PollDetail = ({ selectedPoll, setSelectedPoll }) => {
-  console.log(selectedPoll);
+const PollDetail = ({
+  selectedPoll,
+  setSelectedPoll,
+  setPollsArray,
+  pollsArray,
+}) => {
+  const pollDetail = pollsArray.find((poll) => poll.id === selectedPoll);
+
+  const handleNoVote = () => {
+    const filteredArray = pollsArray.filter((poll) => poll.id !== selectedPoll);
+    pollDetail.noVotes++;
+    setPollsArray([pollDetail, ...filteredArray]);
+  };
+  const handleYesVote = () => {
+    const filteredArray = pollsArray.filter((poll) => poll.id !== selectedPoll);
+    pollDetail.yesVotes++;
+    setPollsArray([pollDetail, ...filteredArray]);
+  };
   return (
     <div className="Poll-Details">
       {!selectedPoll ? (
@@ -12,31 +28,28 @@ const PollDetail = ({ selectedPoll, setSelectedPoll }) => {
         <>
           <header className="Poll-Header">
             <div className="Poll-Title">
-              <h1>{selectedPoll.title}</h1>
+              <h1>{pollDetail.title}</h1>
             </div>
             <div className="Poll-Detail-Close">
               <h1 onClick={() => setSelectedPoll(null)}>x</h1>
             </div>
           </header>
-
           <section className="Poll-Section">
             <div className="Poll-Question">
-              <h2>{selectedPoll.question}</h2>
+              <h2>{pollDetail.question}</h2>
             </div>
-
             <div className="Poll-Vote-Count">
               <div className="Poll-Votes">
-                <h3>No Votes: {selectedPoll.noVotes}</h3>
+                <h3>No Votes: {pollDetail.noVotes}</h3>
               </div>
               <div className="Poll-Votes">
-                <h3>Yes Votes: {selectedPoll.yesVotes} </h3>
+                <h3>Yes Votes: {pollDetail.yesVotes} </h3>
               </div>
             </div>
-
             <h4>Cast Your Vote</h4>
             <div className="Poll-Voting">
-              <button>No</button>
-              <button>Yes</button>
+              <button onClick={handleNoVote}>No</button>
+              <button onClick={handleYesVote}>Yes</button>
             </div>
           </section>
         </>
