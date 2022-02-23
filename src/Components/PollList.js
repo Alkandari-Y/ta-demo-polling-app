@@ -24,7 +24,7 @@ const PollList = ({ pollsArray, selectedPoll }) => {
 
   return (
     <div className="Polls-Side-Bar">
-      {open ? (
+      {!open ? (
         <>
           <div className="Side-Bar-Heading">
             <h3>Polls</h3>
