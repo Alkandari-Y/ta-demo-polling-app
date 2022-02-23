@@ -1,38 +1,115 @@
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Header {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 5vh;
+    background-color: aquamarine;
+    justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Nav-Bar {
+    margin-left: 20px;
+    padding: 5px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Header-Title {
+    font-size: 1.35rem;
 }
 
-.App-link {
-  color: #61dafb;
+.Main-Layout {
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    height: 95vh;
+    width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Polls-Side-Bar{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 10vw;
+    background-color: white;
+    border: solid 0.025rem grey;
+}
+
+.Side-Bar-Heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Polls-Side-Bar h3 {
+    margin: 5% 0 ;
+}
+
+.New-Poll{
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.Polls-Side-Bar input {
+    height: 30px;
+    margin: 5% 0;
+    padding: 5px;
+}
+
+.Poll-Item {
+    cursor: pointer;
+    margin: 5% 0;
+}
+
+.Poll-Details {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 90vw;
+    background-color: honeydew;
+}
+
+.Poll-Detail-CTA {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Poll-Header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Poll-Details .Poll-Title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Poll-Detail-Close {
+    padding-right: 10px;
+}
+
+.Poll-Detail-Close h1 {
+    font-weight: 2;
+    cursor: pointer;
+}
+
+.PollVote {
+    margin: 10px;
+    padding: 20px
+}
+
+.PollForm{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 90vw;
+    background-color: honeydew;
 }
