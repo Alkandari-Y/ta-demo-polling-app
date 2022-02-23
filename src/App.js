@@ -1,6 +1,6 @@
-import './App.css';
-import Header from './Components/Header';
-import Polls from './Components/Polls';
+import "./App.css";
+import Header from "./Components/Header";
+import Polls from "./Components/Polls";
 
 function App() {
   return (
