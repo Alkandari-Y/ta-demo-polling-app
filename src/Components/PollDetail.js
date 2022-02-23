@@ -1,22 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
-const PollDetail = ({
-  selectedPoll,
-  setSelectedPoll,
-  setPollsArray,
-  pollsArray,
-}) => {
+const PollDetail = ({ selectedPoll, pollsArray }) => {
   const pollDetail = pollsArray.find((poll) => poll.id === selectedPoll);
 
   const handleNoVote = () => {
-    const filteredArray = pollsArray.filter((poll) => poll.id !== selectedPoll);
     pollDetail.noVotes++;
-    setPollsArray([pollDetail, ...filteredArray]);
+    console.log(pollsArray);
   };
   const handleYesVote = () => {
-    const filteredArray = pollsArray.filter((poll) => poll.id !== selectedPoll);
     pollDetail.yesVotes++;
-    setPollsArray([pollDetail, ...filteredArray]);
+    console.log(pollsArray);
   };
   return (
     <div className="Poll-Details">
@@ -31,7 +24,14 @@ const PollDetail = ({
               <h1>{pollDetail.title}</h1>
             </div>
             <div className="Poll-Detail-Close">
-              <h1 onClick={() => setSelectedPoll(null)}>x</h1>
+              <h1
+                onClick={() => {
+                  selectedPoll = null;
+                  console.log(selectedPoll);
+                }}
+              >
+                x
+              </h1>
             </div>
           </header>
           <section className="Poll-Section">

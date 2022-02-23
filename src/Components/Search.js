@@ -1,17 +1,13 @@
 import React from "react";
 
-const Search = ({ query, setQuery }) => {
+const Search = ({ query }) => {
   const handleChange = (e) => {
-    setQuery(e.target.value);
+    query = e.target.value;
+    console.log(query);
   };
 
   return (
-    <input
-      type="text"
-      value={query}
-      placeholder="Search By Title"
-      onChange={handleChange}
-    />
+    <input type="text" placeholder="Search By Title" onChange={handleChange} />
   );
 };
 
