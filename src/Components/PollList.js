@@ -36,7 +36,7 @@ const PollList = ({ pollsArray, selectedPoll }) => {
           <div className="PollList-Side-Bar">{pollList}</div>
         </>
       ) : (
-        <PollForm open={open} addToPOllArray={addToPOllArray} />
+        <PollForm onOpenForm={onOpenForm} addToPOllArray={addToPOllArray} />
       )}
     </div>
   );

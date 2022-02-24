@@ -6,7 +6,6 @@ const PollForm = ({ onOpenForm, addToPOllArray }) => {
 
   const handleSubmit = (e) => {
     const randomId = Date.now();
-    console.log(randomId);
     addToPOllArray({
       title,
       question,
